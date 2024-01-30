@@ -1,0 +1,50 @@
+import java.io.*;
+class bank{
+int acno;
+float bal = 1000;
+void get()throws Exception{
+BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+System.out.println("Enter the ac/no: ");
+acno=Integer.parseInt(r.readLine());
+System.out.println("Your current balance:"+bal);
+}
+void deposit()throws Exception{
+BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+System.out.println("Enter deposit amount : ");
+float d = Float.parseFloat(r.readLine());
+bal=bal+d;
+System.out.println("Balance : "+bal);
+}
+void draw()throws Exception{
+BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+System.out.println("Enter withdrawl amount : ");
+float d = Float.parseFloat(r.readLine());
+bal=bal-d;
+System.out.println("Balance : "+bal);
+}
+}
+class run{
+public static void main(String args[])throws Exception{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+bank ba=new bank();
+System.out.println("WELCOME TO SMART BANK !!");
+ba.get();
+System.out.println("\nPress 1 for Deposit \n Press 2 for Withdrawl\n Press 3 for both ");
+int c=Integer.parseInt(br.readLine());
+switch(c)
+{
+case 1:
+ba.deposit();
+break;
+case 2:
+ba.draw();
+break;
+case 3:
+ba.deposit();
+ba.draw();
+break;
+default:
+System.out.println("Enter valid option");
+}
+}
+}
